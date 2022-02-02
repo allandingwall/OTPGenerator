@@ -1,4 +1,4 @@
-import secrets as sec
+import secrets
 import string
 
 def list_to_str(lst):
@@ -18,7 +18,7 @@ def encrypt_text(text_to_encrpyt, stringkey = None):
 
 	if bool(stringkey) == False:
 		for i in range(len(plain_text_int)):
-			key.append((sec.randbelow(26)))
+			key.append((secrets.randbelow(26)))
 
 	else: 
 		key_list = stringkey.split (' ')
@@ -38,24 +38,16 @@ def encrypt_text(text_to_encrpyt, stringkey = None):
 	while True:
 		choice = str(input("Would you like to see a full overview of the encryption (y/n): "))
 		if choice == "y":
-			print()
-			print(f'Plain Text:\n{plain_text}')
-			print()
-			print(f'Plain Text Integers:\n{plain_int_string}')
-			print()
-			print(f'Key:\n{key_string}')
-			print()
-			print(f'Encrypted Integers:\n{encrpyted_int_string}')
-			print()
+			print(f'\nPlain Text:\n{plain_text}\n')
+			print(f'\nPlain Text Integers:\n{plain_int_string}\n')
+			print(f'Key:\n{key_string}\n')
+			print(f'Encrypted Integers:\n{encrpyted_int_string}\n')
 			print(f'Encrypted String:\n{encrypted_string}')
 			break
 
 		elif choice == "n":
-			print()
-			print(f'Plain Text:\n{plain_text}')
-			print()
-			print(f'Key:\n{key_string}')
-			print()
+			print(f'\nPlain Text:\n{plain_text}\n')
+			print(f'Key:\n{key_string}\n')
 			print(f'Encrypted String:\n{encrypted_string}')
 			break
 
@@ -89,22 +81,15 @@ def decrypt_text(cipher_text, key):
 	while True:
 		choice = str(input("Would you like to see a full overview of the decryption (y/n): "))
 		if choice == "y":
-			print()
-			print(f'Encrypted Text:\n{cipher_text}')
-			print()
-			print(f'Encrypted Integers:\n{encrypted_int_string}')
-			print()
-			print(f'Key:\n{key}')
-			print()
-			print(f'Decrypted Integers:\n{plain_int_string}')
-			print()
+			print(f'\nEncrypted Text:\n{cipher_text}\n')
+			print(f'Encrypted Integers:\n{encrypted_int_string}\n')
+			print(f'Key:\n{key}\n')
+			print(f'Decrypted Integers:\n{plain_int_string}\n')
 			print(f'Decrypted Text:\n{plain_text}')
 			break
 
 		elif choice == "n":
-			print()
-			print(f'Encrypted Text:\n{cipher_text}')
-			print()
+			print(f'\nEncrypted Text:\n{cipher_text}\n')
 			print(f'Decrypted Text:\n{plain_text}')
 			break
 
@@ -117,7 +102,7 @@ def generate_keys(number_of_keys, length_of_keys):
 	for i in range(number_of_keys):
 		key = []
 		for i in range(length_of_keys):
-			key.append((sec.randbelow(26)))
+			key.append((secrets.randbelow(26)))
 		key_list.append(key)
 
 	f = open("keys.txt", "w")
@@ -136,9 +121,7 @@ def key_to_letters(key):
 
 	letter_string = ''
 	letter_string = letter_string.join(text_list)
-	print()
-	print(f'Inputted Key: \n{key}')
-	print()
+	print(f'\nInputted Key: \n{key}\n')
 	print(f'Outputted Letters:\n{letter_string}')
 
 def letters_to_key(key_letters):
@@ -148,52 +131,42 @@ def letters_to_key(key_letters):
 
 	number_string = ' '
 	number_string = number_string.join(number_list)
-	print()
-	print(f'Inputted Letters:\n{key_letters}')
-	print()
+	print(f'\nInputted Letters:\n{key_letters}\n')
 	print(f'Key:\n{number_string}')
 
 def main():
 	while True:
-		print()
-		choice = str(input("Would you like to encrypt (e) text, decrypt (d) text, generate keys (g),\nconvert keys (c) or exit (exit) the program: "))
+		choice = str(input("\nWould you like to encrypt (e) text, decrypt (d) text, generate keys (g), convert keys (c) or exit (exit) the program: "))
 		if choice == 'e':
-			print()
-			text_to_encrypt = str(input("Input text to encrypt: "))
+			text_to_encrypt = str(input("\nInput text to encrypt: "))
 			text_to_encrypt = text_to_encrypt.translate(str.maketrans('', '', string.punctuation))
 			key = str(input('Enter a key (not required): '))
 			print()
 			encrypt_text(text_to_encrypt, key)
 
 		elif choice == 'd':
-			print()
-			cipher = input(str("Input the encrypted text: "))
+			cipher = input(str("\nInput the encrypted text: "))
 			key = input(str("Input the key: "))
 			print()
 			decrypt_text(cipher, key)
 
 		elif choice == 'g':
-			print()
-			number_of_keys = int(input("How many keys to generate: "))
+			number_of_keys = int(input("\nHow many keys to generate: "))
 			length_of_keys = int(input("How long should each key be: "))
 			key_list = []
 			generate_keys(number_of_keys, length_of_keys)
-			print()
-			print('''Your keys have been exported as "keys.txt".''')
+			print('''\nYour keys have been exported as "keys.txt".''')
 
 		elif choice == 'c':
 			while True:
-				print()
-				choice2 = str(input("Would you like to convert a key to letters (1), letters to a key (2), or go back (back): "))
+				choice2 = str(input("\nWould you like to convert a key to letters (1), letters to a key (2), or go back (back): "))
 				if choice2 == "1":
-					print()
-					key = input(str("Input the key: "))
+					key = input(str("\nInput the key: "))
 					key_to_letters(key)
 					break
 
 				elif choice2 == "2":
-					print()
-					key_letters = input(str("Input the letters: "))
+					key_letters = input(str("\nInput the letters: "))
 					letters_to_key(key_letters)
 					break
 
@@ -202,14 +175,11 @@ def main():
 					break
 
 				else:
-					print()
-					print("Invalid Selection.")
+					print("\nInvalid Selection.")
 
 
 		elif choice == 'exit':
-			print()
-			print("Goodbye...")
-			print()
+			print("\nGoodbye...\n")
 			break
 
 		else:
