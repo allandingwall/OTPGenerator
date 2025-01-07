@@ -1,5 +1,5 @@
 # One-Time Pad CLI Tool
-A Python-based Command-Line Interface (CLI) for encrypting and decrypting files using a one-time pad. This tool generates a secure key for each encryption, stores it separately, and deletes it after decryption to prevent reuse.
+This is a Python-based Command-Line Interface (CLI) for encrypting and decrypting files using a one-time pad. This tool generates a secure key for each encryption, stores it separately, and deletes it after decryption to prevent reuse.
 
 ## Features
 - Encrypt files with a unique, securely generated key.
@@ -10,6 +10,11 @@ A Python-based Command-Line Interface (CLI) for encrypting and decrypting files 
 Encrypt a file:
 ```bash
 ./otp.py -e -i [input_file] -o [encrypted_file]
+```
+
+Decrypt a file:
+```bash
+./otp.py -d -i [input_file] -o [decrypted_file]
 ```
 
 ### Note
