@@ -1,5 +1,16 @@
-# One-Time Pad Generator
-This project is a simple tool for encrypting, decrypting, and generating keys for one-time pads.
-It makes use of the python Secrets module, in order to provide cryptographically secure random numbers.
+# One-Time Pad CLI Tool
+A Python-based Command-Line Interface (CLI) for encrypting and decrypting files using a one-time pad. This tool generates a secure key for each encryption, stores it separately, and deletes it after decryption to prevent reuse.
 
-CURRENTLY BEING REWRITTEN TO OPERATE ON BYTES RATHER THAN INTEGER REPRESENTATION OF LETTERS
+## Features
+- Encrypt files with a unique, securely generated key.
+- Decrypt files using the provided key file.
+- Automatically deletes the key after decryption.
+
+## Usage
+Encrypt a file:
+```bash
+./otp.py -e -i [input_file] -o [encrypted_file]
+```
+
+### Note
+This tool is a work in progress, and is currently being rewritten from an earlier version that used integer representations of letters rather than bytes.
