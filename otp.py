@@ -1,5 +1,7 @@
-import secrets
+import argparse
 import base64
+import os
+import secrets
 
 def encrypt(plaintext, key):
     cipher = bytes([plaintext[i] ^ key[i] for i in range(len(plaintext))])
