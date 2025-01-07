@@ -1,3 +1,6 @@
+### Note ⚠️⚠️
+This tool is currently a work in progress, and is currently being rewritten from an earlier toy implementation (otp-generator.py) that used integer representations of letters rather than bytes.
+
 # One-Time Pad CLI Tool
 This is a Python-based Command-Line Interface (CLI) for encrypting and decrypting files using a one-time pad. This tool generates a secure key for each encryption, stores it separately, and deletes it after decryption to prevent reuse.
 
@@ -16,6 +19,3 @@ Decrypt a file:
 ```bash
 ./otp.py -d -i [input_file] -o [decrypted_file]
 ```
-
-### Note
-This tool is a work in progress, and is currently being rewritten from an earlier version that used integer representations of letters rather than bytes.
